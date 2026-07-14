@@ -1,11 +1,10 @@
 # LFG Open Source
 
-[![arXiv](https://img.shields.io/badge/arXiv-2602.22091-b31b1b.svg)](https://arxiv.org/abs/2602.22091) [![Project Page](https://img.shields.io/badge/Project-Page-blue.svg)](https://lfg-ai.github.io/)
+[![arXiv](https://img.shields.io/badge/arXiv-2602.22091-b31b1b.svg)](https://arxiv.org/abs/2602.22091) [![Project Page](https://img.shields.io/badge/Project-Page-blue.svg)](https://lfg-ai.github.io/) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-yellow)](https://huggingface.co/AppliedIntuitionResearch/LFG)
 
 - **Paper:** https://arxiv.org/abs/2602.22091
 - **Project page:** https://lfg-ai.github.io/
-
-> **Note:** The pretrained checkpoint will be released soon. Stay tuned.
+- **Pretrained checkpoint:** https://huggingface.co/AppliedIntuitionResearch/LFG
 
 This repository contains the open-source local inference code path for LFG. It loads a trained `LFG` checkpoint and runs it on either a video file or an ordered sequence of RGB images.
 
@@ -32,22 +31,20 @@ By default the CLI uses `--device auto`, which selects CUDA when a local GPU is 
 
 ## Checkpoint
 
-The pretrained LFG checkpoint will be released soon. Once available, place it on the same machine, for example:
+The pretrained LFG checkpoint is available on Hugging Face at [AppliedIntuitionResearch/LFG](https://huggingface.co/AppliedIntuitionResearch/LFG) (CC BY-NC 4.0). It predicts dense depth / 3D points, camera pose, per-point confidence, object segmentation, and per-pixel motion. Download it locally:
 
 ```bash
-mkdir -p checkpoints
-# put the provided local checkpoint at checkpoints/lfg.pt
-# or, for motion outputs:
-# put the provided local motion checkpoint at checkpoints/pzow1k_seg_motion.pt
+pip install -U huggingface_hub
+hf download AppliedIntuitionResearch/LFG lfg_seg_motion_1.3b.pt --local-dir checkpoints
 ```
 
-The checkpoint should be one of the provided `LFG` checkpoints. The loader reads the model configuration from checkpoint metadata and state-dict keys, builds the matching model, and loads the weights locally.
+The loader reads the model configuration from checkpoint metadata and state-dict keys, builds the matching model, and loads the weights locally.
 
 ## Run On A Video
 
 ```bash
 python infer.py /path/to/video.mp4 \
-  --checkpoint checkpoints/lfg.pt \
+  --checkpoint checkpoints/lfg_seg_motion_1.3b.pt \
   --output-dir outputs/video_demo
 ```
 
@@ -55,7 +52,7 @@ If installed with `pip install -e .`, the same command is available as:
 
 ```bash
 lfg-infer /path/to/video.mp4 \
-  --checkpoint checkpoints/lfg.pt \
+  --checkpoint checkpoints/lfg_seg_motion_1.3b.pt \
   --output-dir outputs/video_demo
 ```
 
@@ -63,7 +60,7 @@ Useful video options:
 
 ```bash
 python infer.py /path/to/video.mp4 \
-  --checkpoint checkpoints/lfg.pt \
+  --checkpoint checkpoints/lfg_seg_motion_1.3b.pt \
   --frame-stride 3 \
   --max-frames 120 \
   --window-stride 1 \
@@ -76,7 +73,7 @@ Directory input:
 
 ```bash
 python infer.py /path/to/frames \
-  --checkpoint checkpoints/lfg.pt \
+  --checkpoint checkpoints/lfg_seg_motion_1.3b.pt \
   --output-dir outputs/frames_demo
 ```
 
@@ -84,7 +81,7 @@ Glob input:
 
 ```bash
 python infer.py "/path/to/frames/*.jpg" \
-  --checkpoint checkpoints/lfg.pt \
+  --checkpoint checkpoints/lfg_seg_motion_1.3b.pt \
   --output-dir outputs/glob_demo
 ```
 
