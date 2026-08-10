@@ -31,20 +31,22 @@ By default the CLI uses `--device auto`, which selects CUDA when a local GPU is 
 
 ## Checkpoint
 
-The pretrained LFG checkpoint is available on Hugging Face at [AppliedIntuitionResearch/LFG](https://huggingface.co/AppliedIntuitionResearch/LFG) (CC BY-NC 4.0). It predicts dense depth / 3D points, camera pose, per-point confidence, object segmentation, and per-pixel motion. Download it locally:
+The pretrained LFG checkpoint is available on Hugging Face at [AppliedIntuitionResearch/LFG](https://huggingface.co/AppliedIntuitionResearch/LFG) (CC BY-NC 4.0). It predicts dense depth / 3D points, camera pose, per-point confidence, object segmentation, and per-pixel motion. Given 3 observed frames it predicts all outputs for those frames plus 3 future frames. Download it locally:
 
 ```bash
 pip install -U huggingface_hub
-hf download AppliedIntuitionResearch/LFG lfg_seg_motion_1.3b.pt --local-dir checkpoints
+hf download AppliedIntuitionResearch/LFG lfg_seg_motion_m3n3.pt --local-dir checkpoints
 ```
 
 The loader reads the model configuration from checkpoint metadata and state-dict keys, builds the matching model, and loads the weights locally.
+
+Point maps are predicted up to an unknown scale and shift. Align predictions to a metric reference (for example a least-squares scale-and-shift fit against ground-truth depth) before computing metric errors.
 
 ## Run On A Video
 
 ```bash
 python infer.py /path/to/video.mp4 \
-  --checkpoint checkpoints/lfg_seg_motion_1.3b.pt \
+  --checkpoint checkpoints/lfg_seg_motion_m3n3.pt \
   --output-dir outputs/video_demo
 ```
 
@@ -52,7 +54,7 @@ If installed with `pip install -e .`, the same command is available as:
 
 ```bash
 lfg-infer /path/to/video.mp4 \
-  --checkpoint checkpoints/lfg_seg_motion_1.3b.pt \
+  --checkpoint checkpoints/lfg_seg_motion_m3n3.pt \
   --output-dir outputs/video_demo
 ```
 
@@ -60,7 +62,7 @@ Useful video options:
 
 ```bash
 python infer.py /path/to/video.mp4 \
-  --checkpoint checkpoints/lfg_seg_motion_1.3b.pt \
+  --checkpoint checkpoints/lfg_seg_motion_m3n3.pt \
   --frame-stride 3 \
   --max-frames 120 \
   --window-stride 1 \
@@ -73,7 +75,7 @@ Directory input:
 
 ```bash
 python infer.py /path/to/frames \
-  --checkpoint checkpoints/lfg_seg_motion_1.3b.pt \
+  --checkpoint checkpoints/lfg_seg_motion_m3n3.pt \
   --output-dir outputs/frames_demo
 ```
 
@@ -81,7 +83,7 @@ Glob input:
 
 ```bash
 python infer.py "/path/to/frames/*.jpg" \
-  --checkpoint checkpoints/lfg_seg_motion_1.3b.pt \
+  --checkpoint checkpoints/lfg_seg_motion_m3n3.pt \
   --output-dir outputs/glob_demo
 ```
 
