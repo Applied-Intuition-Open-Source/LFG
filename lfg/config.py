@@ -21,20 +21,25 @@ from typing import Any, Mapping
 
 @dataclass(frozen=True)
 class ModelConfig:
-    """Architecture settings needed to build the LFG model."""
+    """Architecture settings needed to build the LFG model.
 
-    m: int = 3
-    n: int = 3
-    encoder_name: str = "dinov2"
-    decoder_size: str = "large"
-    ar_n_heads: int = 16
-    ar_n_layers: int = 8
-    ar_dropout: float = 0.1
-    use_segmentation_head: bool = False
-    segmentation_num_classes: int = 7
-    use_motion_head: bool = False
-    use_flow_head: bool = False
-    point_head_type: str = "linear"
+    Always resolved per checkpoint by :func:`model_config_from_checkpoint`, which reads the
+    checkpoint's own config and infers the rest from the state dict; the settings used for a
+    run are recorded under ``model_config`` in ``run_metadata.json``.
+    """
+
+    m: int
+    n: int
+    encoder_name: str
+    decoder_size: str
+    ar_n_heads: int
+    ar_n_layers: int
+    ar_dropout: float
+    use_segmentation_head: bool
+    segmentation_num_classes: int
+    use_motion_head: bool
+    use_flow_head: bool
+    point_head_type: str
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
