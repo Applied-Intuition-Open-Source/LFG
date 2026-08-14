@@ -1,0 +1,95 @@
+{
+  "checkpoint": "",
+  "dataset": "waymo",
+  "clips_scored": 200,
+  "clips_evaluated": 200,
+  "clip_list": "eval/clips/waymo_200.txt",
+  "frame_stride": 5,
+  "max_depth": 80.0,
+  "model": {
+    "model": "pi3",
+    "frames_seen": 6
+  },
+  "metrics": {
+    "overall_absrel": {
+      "mean": 0.12054405062148968,
+      "std": 0.05914806740125319,
+      "count": 200
+    },
+    "overall_rmse": {
+      "mean": 5.1461542547742525,
+      "std": 1.6246945817602814,
+      "count": 200
+    },
+    "predicted_absrel": {
+      "mean": 0.11995209843541184,
+      "std": 0.05982084657451922,
+      "count": 200
+    },
+    "predicted_rmse": {
+      "mean": 5.1477695689598715,
+      "std": 1.757978575393933,
+      "count": 200
+    },
+    "observed_absrel": {
+      "mean": 0.1211360028075675,
+      "std": 0.06020275377750776,
+      "count": 200
+    },
+    "observed_rmse": {
+      "mean": 5.144538940588633,
+      "std": 1.6894983472702225,
+      "count": 200
+    },
+    "overall_delta1": {
+      "mean": 0.8746811504070385,
+      "std": 0.11335258527188513,
+      "count": 200
+    },
+    "predicted_delta1": {
+      "mean": 0.8729221554750337,
+      "std": 0.11420877341233679,
+      "count": 200
+    },
+    "observed_delta1": {
+      "mean": 0.8764401453390434,
+      "std": 0.11495637237196542,
+      "count": 200
+    },
+    "trajectory_ate": {
+      "mean": 0.08609781057570938,
+      "std": 0.1176116713076618,
+      "count": 200
+    },
+    "trajectory_rot": {
+      "mean": 0.726093020836802,
+      "std": 1.4484326192146757,
+      "count": 200
+    },
+    "trajectory_trans_pct": {
+      "mean": 2.3634199403664042,
+      "std": 3.29768205800186,
+      "count": 200
+    },
+    "overall_pa": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "overall_miou": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "predicted_pa": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "predicted_miou": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    }
+  }
+}

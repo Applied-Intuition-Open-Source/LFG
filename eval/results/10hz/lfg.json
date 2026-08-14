@@ -1,0 +1,106 @@
+{
+  "checkpoint": "lfg_seg_motion_m3n3.pt",
+  "dataset": "kitti360",
+  "clips_scored": 200,
+  "clips_evaluated": 200,
+  "clip_list": "eval/clips/kitti360_200.txt",
+  "frame_stride": 1,
+  "max_depth": 80.0,
+  "model": {
+    "model": "lfg",
+    "m": 3,
+    "n": 3,
+    "encoder_name": "dinov2",
+    "decoder_size": "large",
+    "ar_n_heads": 8,
+    "ar_n_layers": 4,
+    "ar_dropout": 0.1,
+    "use_segmentation_head": true,
+    "segmentation_num_classes": 7,
+    "use_motion_head": true,
+    "use_flow_head": false,
+    "point_head_type": "linear"
+  },
+  "metrics": {
+    "overall_absrel": {
+      "mean": 0.10080269287806004,
+      "std": 0.04040590611115005,
+      "count": 200
+    },
+    "overall_rmse": {
+      "mean": 2.865401073719064,
+      "std": 1.006114302106813,
+      "count": 200
+    },
+    "predicted_absrel": {
+      "mean": 0.10066292714017132,
+      "std": 0.04013195742582057,
+      "count": 200
+    },
+    "predicted_rmse": {
+      "mean": 2.9803430745999013,
+      "std": 1.0577062306300884,
+      "count": 200
+    },
+    "observed_absrel": {
+      "mean": 0.10094245861594875,
+      "std": 0.04337772196890382,
+      "count": 200
+    },
+    "observed_rmse": {
+      "mean": 2.750459072838227,
+      "std": 0.985080661939822,
+      "count": 200
+    },
+    "overall_delta1": {
+      "mean": 0.9127118285236543,
+      "std": 0.0717880153747951,
+      "count": 200
+    },
+    "predicted_delta1": {
+      "mean": 0.9087455867962564,
+      "std": 0.06889375278435762,
+      "count": 200
+    },
+    "observed_delta1": {
+      "mean": 0.9166780702510522,
+      "std": 0.07918395846549457,
+      "count": 200
+    },
+    "trajectory_ate": {
+      "mean": 0.09791134646074123,
+      "std": 0.022849731249529378,
+      "count": 200
+    },
+    "trajectory_rot": {
+      "mean": 0.57185432535083,
+      "std": 0.4533123739952314,
+      "count": 200
+    },
+    "trajectory_trans_pct": {
+      "mean": 22.65579630954827,
+      "std": 4.786256253800272,
+      "count": 200
+    },
+    "overall_pa": {
+      "mean": 0.9326410663756257,
+      "std": 0.03756937318774913,
+      "count": 200
+    },
+    "overall_miou": {
+      "mean": 0.7157164640149654,
+      "std": 0.11705996084040705,
+      "count": 200
+    },
+    "predicted_pa": {
+      "mean": 0.926764268006009,
+      "std": 0.03963931843923127,
+      "count": 200
+    },
+    "predicted_miou": {
+      "mean": 0.7067465170077898,
+      "std": 0.12825373535506895,
+      "count": 200
+    }
+  }
+}

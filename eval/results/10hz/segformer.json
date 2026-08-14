@@ -1,0 +1,95 @@
+{
+  "checkpoint": "",
+  "dataset": "kitti360",
+  "clips_scored": 200,
+  "clips_evaluated": 200,
+  "clip_list": "eval/clips/kitti360_200.txt",
+  "frame_stride": 1,
+  "max_depth": 80.0,
+  "model": {
+    "model": "segformer",
+    "frames_seen": 6
+  },
+  "metrics": {
+    "overall_absrel": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "overall_rmse": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "predicted_absrel": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "predicted_rmse": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "observed_absrel": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "observed_rmse": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "overall_delta1": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "predicted_delta1": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "observed_delta1": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "trajectory_ate": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "trajectory_rot": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "trajectory_trans_pct": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "overall_pa": {
+      "mean": 0.9497303778516927,
+      "std": 0.026765346128795903,
+      "count": 200
+    },
+    "overall_miou": {
+      "mean": 0.69534777184346,
+      "std": 0.1184166386088078,
+      "count": 200
+    },
+    "predicted_pa": {
+      "mean": 0.9511604000989786,
+      "std": 0.027127686883119836,
+      "count": 200
+    },
+    "predicted_miou": {
+      "mean": 0.6971903262987741,
+      "std": 0.1213028259584346,
+      "count": 200
+    }
+  }
+}

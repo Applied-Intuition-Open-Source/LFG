@@ -25,7 +25,10 @@ class ModelConfig:
 
     Always resolved per checkpoint by :func:`model_config_from_checkpoint`, which reads the
     checkpoint's own config and infers the rest from the state dict; the settings used for a
-    run are recorded under ``model_config`` in ``run_metadata.json``.
+    run are recorded under ``model_config`` in ``run_metadata.json``. Where neither source
+    supplies a value the defaults describe the released checkpoint, so a checkpoint saved
+    without a config still builds the right architecture. ``ar_n_heads`` in particular cannot
+    be recovered from the weights: the wrong count loads without error and predicts nonsense.
     """
 
     m: int
@@ -172,10 +175,10 @@ def model_config_from_checkpoint(
             )
         ).lower(),
         ar_n_heads=int(
-            _first(_get_any(model, "AR_N_HEADS", "ar_n_heads"), _get(checkpoint_config, "ar_n_heads"), default=16)
+            _first(_get_any(model, "AR_N_HEADS", "ar_n_heads"), _get(checkpoint_config, "ar_n_heads"), default=8)
         ),
         ar_n_layers=int(
-            _first(_get_any(model, "AR_N_LAYERS", "ar_n_layers"), _get(checkpoint_config, "ar_n_layers"), default=8)
+            _first(_get_any(model, "AR_N_LAYERS", "ar_n_layers"), _get(checkpoint_config, "ar_n_layers"), default=4)
         ),
         ar_dropout=float(
             _first(_get_any(model, "AR_DROPOUT", "ar_dropout"), _get(checkpoint_config, "ar_dropout"), default=0.1)

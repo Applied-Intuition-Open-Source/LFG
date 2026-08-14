@@ -26,11 +26,11 @@ class LFG(nn.Module):
             decoder_size='large',
             encoder_name='dinov2',
             n_future_frames=3,
-            ar_n_heads=16,
-            ar_n_layers=8,
+            ar_n_heads=8,
+            ar_n_layers=4,
             ar_dropout=0.1,
             use_segmentation_head=False,  # Enable segmentation head
-            segmentation_num_classes=6,  # Number of segmentation classes
+            segmentation_num_classes=7,  # Number of segmentation classes
             use_motion_head=True,  # Enable motion head
             use_flow_head=False,  # Enable optical flow head
             point_head_type='linear',  # Options: 'linear', 'refined', 'conv', 'simple_conv'

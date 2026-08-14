@@ -1,0 +1,106 @@
+{
+  "checkpoint": "lfg_seg_motion_m3n3.pt",
+  "dataset": "waymo",
+  "clips_scored": 200,
+  "clips_evaluated": 200,
+  "clip_list": "eval/clips/waymo_200.txt",
+  "frame_stride": 5,
+  "max_depth": 80.0,
+  "model": {
+    "model": "lfg",
+    "m": 3,
+    "n": 3,
+    "encoder_name": "dinov2",
+    "decoder_size": "large",
+    "ar_n_heads": 8,
+    "ar_n_layers": 4,
+    "ar_dropout": 0.1,
+    "use_segmentation_head": true,
+    "segmentation_num_classes": 7,
+    "use_motion_head": true,
+    "use_flow_head": false,
+    "point_head_type": "linear"
+  },
+  "metrics": {
+    "overall_absrel": {
+      "mean": 0.15517158650793136,
+      "std": 0.07344845731641679,
+      "count": 200
+    },
+    "overall_rmse": {
+      "mean": 5.8619100256760905,
+      "std": 1.7919003229687884,
+      "count": 200
+    },
+    "predicted_absrel": {
+      "mean": 0.16607167709618806,
+      "std": 0.0787596812685615,
+      "count": 200
+    },
+    "predicted_rmse": {
+      "mean": 6.529384593168896,
+      "std": 2.099948622308078,
+      "count": 200
+    },
+    "observed_absrel": {
+      "mean": 0.14427149591967464,
+      "std": 0.07255117799735694,
+      "count": 200
+    },
+    "observed_rmse": {
+      "mean": 5.194435458183289,
+      "std": 1.7390458324622375,
+      "count": 200
+    },
+    "overall_delta1": {
+      "mean": 0.8097473833303336,
+      "std": 0.13845112298900544,
+      "count": 200
+    },
+    "predicted_delta1": {
+      "mean": 0.7922979885367625,
+      "std": 0.1411172423561218,
+      "count": 200
+    },
+    "observed_delta1": {
+      "mean": 0.8271967781239047,
+      "std": 0.14143104509037213,
+      "count": 200
+    },
+    "trajectory_ate": {
+      "mean": 0.2946812434291067,
+      "std": 0.1274455457010212,
+      "count": 200
+    },
+    "trajectory_rot": {
+      "mean": 0.978158105094773,
+      "std": 1.3231782102140015,
+      "count": 200
+    },
+    "trajectory_trans_pct": {
+      "mean": 5.248763007940729,
+      "std": 4.725221737696965,
+      "count": 200
+    },
+    "overall_pa": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "overall_miou": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "predicted_pa": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    },
+    "predicted_miou": {
+      "mean": NaN,
+      "std": NaN,
+      "count": 0
+    }
+  }
+}
